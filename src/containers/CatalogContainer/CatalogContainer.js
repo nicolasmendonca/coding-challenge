@@ -31,6 +31,7 @@ class CatalogContainer extends PureComponent {
 			[ PAGE_DIRECTIONS.NEXT ]: +1,
 		}
 		this.props.changeCatalogPage( currentPage + pages[ pageDirection ] );
+		document.querySelector( '.Catalog' ).scrollIntoView();
 	}
 
 	render() {

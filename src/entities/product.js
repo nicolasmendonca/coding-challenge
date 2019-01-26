@@ -5,7 +5,7 @@ class Product {
 		cost,
 		category,
 		imgHD,
-		imgSD
+		imgSD,
 	) {
 		this.id = id;
 		this.name = name;

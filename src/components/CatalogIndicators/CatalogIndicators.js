@@ -1,30 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, SortContainer, SortBy, Button } from './styledComponents';
+import { Container } from './styledComponents';
 import ItemsDisplayedContainer from '../../containers/ItemsDisplayedContainer/ItemsDisplayedContainer';
+import SortConditionSelectorContainer from '../../containers/SortConditionSelectorContainer/SortConditionSelectorContainer';
 
 
 const CatalogIndicators = () => (
 	<Container>
 		<ItemsDisplayedContainer />
-		<SortContainer>
-			<SortBy>Sort by:</SortBy>
-			<Button active>
-				<span>
-					Most recent
-				</span>
-			</Button>
-			<Button>
-				<span>
-					Lowest price
-				</span>
-			</Button>
-			<Button>
-				<span>
-					Highest price
-				</span>
-			</Button>
-		</SortContainer>
+		<SortConditionSelectorContainer />
 	</Container>
 );
 

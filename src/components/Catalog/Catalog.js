@@ -19,7 +19,7 @@ const Catalog = ( {
 	<div className="CatalogContainer">
 		<Navbar name={userName} coins={userPoints} />
 		<Header name="Electronics" image={headerImage} />
-		<Container>
+		<Container className="Catalog">
 			<CatalogIndicators />
 			<ShopItemList>
 				{ products.map( product => <ShopItem key={product.id} image={product.imgSD} name={product.name} category={product.category} /> ) }

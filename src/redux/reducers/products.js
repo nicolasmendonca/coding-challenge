@@ -1,8 +1,8 @@
 import { Map } from 'immutable';
-import { FETCH_PRODUCTS_CATALOG, CHAGE_PRODUCTS_CATALOG_PAGE } from '../types';
+import { FETCH_PRODUCTS_CATALOG, CHANGE_PRODUCTS_CATALOG_PAGE, CHANGE_PRODUCTS_SORT_OPTION } from '../types';
 import { handleSuccess } from '../packUtils';
 import Product from '../../entities/product';
-import { initialPage } from '../../config';
+import { initialPage, PRODUCTS_SORT } from '../../config';
 
 const productsInitialState = new Map();
 export const products = ( state = productsInitialState, action ) => {
@@ -21,9 +21,22 @@ export const products = ( state = productsInitialState, action ) => {
 const productsPaginationInitialState = initialPage;
 export const productsPagination = ( state = productsPaginationInitialState, action ) => {
 	switch ( action.type ) {
-	case CHAGE_PRODUCTS_CATALOG_PAGE:
+	case CHANGE_PRODUCTS_CATALOG_PAGE:
 		return action.payload.page;
+	case CHANGE_PRODUCTS_SORT_OPTION: // expected behaviour? return to first page if sort options change
+		return productsPaginationInitialState;
 	default:
 		return state;
 	}
 }
+
+const productsSortInitialState = PRODUCTS_SORT.MOST_RECENT;
+export const productsSort = ( state = productsSortInitialState, action ) => {
+	switch ( action.type ) {
+	case CHANGE_PRODUCTS_SORT_OPTION:
+		return PRODUCTS_SORT[ action.payload.sortOptionID ];
+	default:
+		return state;
+	}
+}
+
