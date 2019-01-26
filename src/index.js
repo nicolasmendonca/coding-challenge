@@ -1,14 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { store } from './redux/store';
+import CatalogContainer from './containers/CatalogContainer/CatalogContainer';
+import './index.css';
+
 
 ReactDOM.render(
-	<Router>
-		<Route path="/" exact component={App} />
-	</Router>
+	<Provider store={store}>
+		<Router>
+			<Route path="/" exact component={CatalogContainer} />
+		</Router>
+	</Provider>
 	,
 	document.getElementById('root')
 );

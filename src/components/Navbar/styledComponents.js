@@ -26,6 +26,7 @@ p {
 `;
 
 const Coins = styled.span`
+font-family: 'Source Sans Pro', sans-serif;
 background:#ededed;
 border-radius:100px;
 width:103px;
