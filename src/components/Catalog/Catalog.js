@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import headerImage from '../../assets/header-x2.png';
 import Navbar from '../Navbar/Navbar';
 import Header from '../Header/Header';
-import ShopItem from '../ShopItem/ShopItem';
 import PaginationNavigator from '../PaginationNavigator/PaginationNavigator';
 import CatalogIndicators from '../CatalogIndicators/CatalogIndicators';
 import { Container, ShopItemList, PaginationIndicators } from './styledComponents';
 import Product from '../../entities/product';
 import ItemsDisplayedContainer from '../../containers/ItemsDisplayedContainer/ItemsDisplayedContainer';
+import ProductShopItemContainer from '../../containers/ProductShopItemContainer/ProductShopItemContainer';
 
 
 const Catalog = ( {
-	userName, userPoints, products, productsCount,
+	userName, userPoints, products,
 	onPrevPageClicked, onNextPageClicked,
 	prevPageIsAvailable, nextPageIsAvailable
 } ) => (
@@ -22,7 +22,7 @@ const Catalog = ( {
 		<Container className="Catalog">
 			<CatalogIndicators />
 			<ShopItemList>
-				{ products.map( product => <ShopItem key={product.id} image={product.imgSD} name={product.name} category={product.category} /> ) }
+				{ products.map( product => <ProductShopItemContainer key={product.id} product={product} /> ) }
 			</ShopItemList>
 			<PaginationIndicators>
 				<ItemsDisplayedContainer />

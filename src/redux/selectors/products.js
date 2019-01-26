@@ -1,9 +1,11 @@
 import { createSelector } from 'reselect';
 import { amountOfPagesToShow, initialPage } from '../../config';
+import { getCurrentUser } from './user';
 
 export const getCurrentPage = state => state.productsPagination
 const getProducts = state => state.products;
 export const getProductsSort = state => state.productsSort;
+const getProduct = ( _, props ) => props.product;
 
 export const selectProductsCatalog = createSelector(
 	[ getProducts ],
@@ -49,5 +51,12 @@ export const selectNextPageIsAvailable = createSelector(
 export const selectProductSortID = createSelector(
 	[ getProductsSort ],
 	productsSort => productsSort.id
+)
+
+export const selectPointsRemainingToBuyProduct = createSelector(
+	[ getCurrentUser, getProduct ],
+	( currentUser, product ) => ( !isNaN( product.cost - currentUser.points ) ?
+		product.cost - currentUser.points
+		: 0 ),
 )
 

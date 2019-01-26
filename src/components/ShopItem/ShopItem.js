@@ -1,13 +1,33 @@
 import React from 'react';
 import productImage from '../../assets/AcerAspire-x1.png';
 import purchaseBlueIcon from '../../assets/icons/buy-blue.svg';
-import { Container, ImageContainer, PurchaseButton, BodyContainer, CategoryName, ProductName } from './styledComponents';
+import purchaseWhiteIcon from '../../assets/icons/buy-white.svg';
+import coin from '../../assets/icons/coin.svg';
+import { Container, ImageContainer, PurchaseButton, BodyContainer, CategoryName, ProductName, PurchaseOverlay, PriceContainer, RedeemButton, CoinsRemaining } from './styledComponents';
 
-const ShopItem = ( { image, name, category } ) => (
+const ShopItem = ( { image, name, category, cost, remainingPointsToBuyProduct } ) => (
 	<Container>
+		{remainingPointsToBuyProduct < 0 && (
+			<PurchaseOverlay className="PurchaseOverlay">
+				<PurchaseButton>
+					<img style={{ marginRight: '7px' }} src={purchaseWhiteIcon} alt="Purchase"/>
+				</PurchaseButton>
+				<PriceContainer>
+					{cost}
+					&nbsp;
+					<img src={coin} alt=""/>
+				</PriceContainer>
+				<RedeemButton>
+					Redeem now
+				</RedeemButton>
+			</PurchaseOverlay>
+		)}
 		<ImageContainer>
 			<PurchaseButton>
-				<img src={purchaseBlueIcon} alt="Purchase"/>
+				{ remainingPointsToBuyProduct < 0
+					? <img src={purchaseBlueIcon} alt="Purchase"/>
+					: <CoinsRemaining><p>You need {remainingPointsToBuyProduct}</p><img src={coin} alt="Coin" /></CoinsRemaining>
+				}
 			</PurchaseButton>
 			<img src={image} alt="Product"/>
 		</ImageContainer>
@@ -24,6 +44,7 @@ const ShopItem = ( { image, name, category } ) => (
 
 ShopItem.defaultProps = {
 	image: productImage,
+	cost: '12.000'
 }
 
 export default ShopItem;
