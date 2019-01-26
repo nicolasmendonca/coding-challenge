@@ -1,25 +1,53 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import styled from 'styled-components';
+import headerImage from './assets/header-x2.png';
 import './App.css';
+import Navbar from './components/Navbar/Navbar';
+import Header from './components/Header/Header';
+import CatalogIndicators from './components/CatalogIndicators/CatalogIndicators';
+import ShopItem from './components/ShopItem/ShopItem';
+
+const Container = styled.div`
+  background-color: #f9f9f9;
+  padding: 48px;
+`;
+
+const ShopItemList = styled.div`
+  padding-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-gap: 1rem;
+  justify-content: space-between;
+`;
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Navbar name="John Kite" coins={6000} />
+        <Header name="Electronics" image={headerImage} />
+        <Container>
+          <CatalogIndicators />
+          <ShopItemList>
+            <ShopItem />
+            <ShopItem />
+            <ShopItem />
+            <ShopItem />
+            <ShopItem />
+            <ShopItem />
+            <ShopItem />
+            <ShopItem />
+            <ShopItem />
+            <ShopItem />
+            <ShopItem />
+            <ShopItem />
+            <ShopItem />
+            <ShopItem />
+            <ShopItem />
+            <ShopItem />
+            <ShopItem />
+          </ShopItemList>
+        </Container>
       </div>
     );
   }
