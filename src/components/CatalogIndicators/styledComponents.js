@@ -12,17 +12,6 @@ const Container = styled.div`
 	padding-bottom: 24px;
 `;
 
-const ResultCount = styled.span`
-	font-family: 'Source Sans Pro', sans-serif;
-	font-size:24px;
-	color:#616161;
-	letter-spacing:-0.15px;
-	line-height:48px;
-	text-align:left;
-	padding: 10px 20px;
-	border-right: 1px solid #d9d9d9;
-`
-
 const SortBy = styled.span`
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size:24px;
@@ -34,6 +23,7 @@ const SortBy = styled.span`
 
 const SortContainer = styled.div`
 	padding: 10px 20px;
+	border-left: 1px solid #d9d9d9;
 `;
 
 const Button = styled.button`
@@ -56,7 +46,6 @@ const Button = styled.button`
 
 export {
 	Container,
-	ResultCount,
 	SortBy,
 	SortContainer,
 	Button,

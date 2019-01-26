@@ -1,59 +1,71 @@
 import React, { PureComponent } from 'react';
-import styled from 'styled-components';
-import headerImage from '../../assets/header-x2.png';
-import Navbar from '../../components/Navbar/Navbar';
-import Header from '../../components/Header/Header';
-import CatalogIndicators from '../../components/CatalogIndicators/CatalogIndicators';
-import ShopItem from '../../components/ShopItem/ShopItem';
 import { connectComponent } from '../../redux/connectComponent';
 import { selectUserName, selectUserPoints } from '../../redux/selectors/user';
-import { selectProductsCatalog } from '../../redux/selectors/products';
+import {
+	selectPaginatedProductsCatalog,
+	selectProductsCount,
+	getCurrentPage,
+	selectPrevPageIsAvailable,
+	selectNextPageIsAvailable
+} from '../../redux/selectors/products';
+import Catalog from '../../components/Catalog/Catalog';
 
-const Container = styled.div`
-  background-color: #f9f9f9;
-  padding: 48px;
-`;
-
-const ShopItemList = styled.div`
-  padding-top: 24px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 300px);
-  grid-gap: 1rem;
-  justify-content: space-between;
-`;
+const PAGE_DIRECTIONS = Object.freeze({
+	PREV: 'PREV',
+	NEXT: 'NEXT'
+});
 
 class CatalogContainer extends PureComponent {
-  componentDidMount() {
-    this.props.fetchUserInfo();
-    this.props.fetchProductsCatalog();
-  }
+	componentDidMount() {
+		this.props.fetchUserInfo();
+		this.props.fetchProductsCatalog();
+	}
 
-  render() {
-    const { userName, userPoints, products } = this.props;
-    return (
-      <div className="App">
-        <Navbar name={userName} coins={userPoints} />
-        <Header name="Electronics" image={headerImage} />
-        <Container>
-          <CatalogIndicators productsCount={products.length} />
-          <ShopItemList>
-            { products.map( product => <ShopItem key={product.id} image={product.imgSD} name={product.name} category={product.category} /> ) }
-          </ShopItemList>
-        </Container>
-      </div>
-    );
-  }
+	/**
+	 * @param {PAGE_DIRECTIONS.PREV|PAGE_DIRECTIONS.NEXT} pageDirection
+	 */
+	_pageChangeHandler(pageDirection) {
+		const { currentPage } = this.props;
+		const pages = {
+			[ PAGE_DIRECTIONS.PREV ]: -1,
+			[ PAGE_DIRECTIONS.NEXT ]: +1,
+		}
+		this.props.changeCatalogPage( currentPage + pages[ pageDirection ] );
+	}
+
+	render() {
+		const {
+			userName, userPoints, products, productsCount,
+			prevPageIsAvailable, nextPageIsAvailable,
+		} = this.props;
+		return (
+		<Catalog
+			userName={userName}
+			userPoints={userPoints}
+			products={products}
+			productsCount={productsCount}
+			onPrevPageClicked={() => this._pageChangeHandler(PAGE_DIRECTIONS.PREV)}
+			onNextPageClicked={() => this._pageChangeHandler(PAGE_DIRECTIONS.NEXT)}
+			prevPageIsAvailable={prevPageIsAvailable}
+			nextPageIsAvailable={nextPageIsAvailable}
+		/>
+		);
+	}
 }
 
 CatalogContainer.defaultProps = {
-  userName: '',
-  points: null,
-}
+	userName: '',
+	userPoints: 0
+};
 
-const mapStateToProps = state => ( {
-  userName: selectUserName( state ),
-  userPoints: selectUserPoints( state ),
-  products: selectProductsCatalog( state )
-} )
+const mapStateToProps = state => ({
+	userName: selectUserName(state),
+	userPoints: selectUserPoints(state),
+	products: selectPaginatedProductsCatalog(state),
+	productsCount: selectProductsCount(state),
+	currentPage: getCurrentPage( state ),
+	prevPageIsAvailable: selectPrevPageIsAvailable( state ),
+	nextPageIsAvailable: selectNextPageIsAvailable( state ),
+});
 
-export default connectComponent( mapStateToProps )( CatalogContainer );
+export default connectComponent(mapStateToProps)(CatalogContainer);

@@ -1,12 +1,12 @@
 import React from 'react';
-import { Container, ResultCount, SortContainer, SortBy, Button } from './styledComponents';
+import PropTypes from 'prop-types';
+import { Container, SortContainer, SortBy, Button } from './styledComponents';
+import ItemsDisplayedContainer from '../../containers/ItemsDisplayedContainer/ItemsDisplayedContainer';
 
 
-const CatalogIndicators = ({ productsCount }) => (
+const CatalogIndicators = () => (
 	<Container>
-		<ResultCount>
-			16 of {productsCount} products
-		</ResultCount>
+		<ItemsDisplayedContainer />
 		<SortContainer>
 			<SortBy>Sort by:</SortBy>
 			<Button active>
@@ -28,8 +28,14 @@ const CatalogIndicators = ({ productsCount }) => (
 	</Container>
 );
 
+CatalogIndicators.propTypes = {
+	productsCount: PropTypes.number,
+	productsShown: PropTypes.number,
+};
+
 CatalogIndicators.defaultProps = {
-	productsCount: 0
+	productsCount: 0,
+	productsShown: 0,
 }
 
 export default CatalogIndicators;
