@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import headerImage from '../../assets/header-x2.png';
 import Navbar from '../Navbar/Navbar';
 import Header from '../Header/Header';
 import PaginationNavigator from '../PaginationNavigator/PaginationNavigator';
@@ -14,7 +13,8 @@ import ProductShopItemContainer from '../../containers/ProductShopItemContainer/
 const Catalog = ( {
 	userName, userPoints, products,
 	onPrevPageClicked, onNextPageClicked,
-	prevPageIsAvailable, nextPageIsAvailable
+	prevPageIsAvailable, nextPageIsAvailable,
+	headerImage
 } ) => (
 	<div className="CatalogContainer">
 		<Navbar name={userName} coins={userPoints} />

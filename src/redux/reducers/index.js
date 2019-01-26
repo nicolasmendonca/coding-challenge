@@ -4,6 +4,7 @@ import * as products from './products';
 import * as coins from './coins';
 import * as purchase from './purchase';
 import * as messages from './messages';
+import * as theme from './theme';
 
 export default combineReducers( {
 	...currentUser,
@@ -11,4 +12,5 @@ export default combineReducers( {
 	...coins,
 	...purchase,
 	...messages,
+	...theme,
 } );

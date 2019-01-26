@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from '../../styles/helpers';
 
 
 export const SortContainer = styled.div`
@@ -15,9 +16,9 @@ margin: 0 12px;
 cursor: pointer;
 
 span {
-	font-family: ${ props => props.theme.primaryFont };
+	font-family: ${theme('primaryFont')};
 	font-size:24px;
-	color: #ffffff;
+	color: ${theme('cardBackgroundColor')};
 	letter-spacing:-0.15px;
 	line-height:38px;
 	text-align:left;
@@ -25,7 +26,7 @@ span {
 `;
 
 export const SortBy = styled.span`
-	font-family: ${ props => props.theme.primaryFont };
+	font-family: ${theme('primaryFont')};
 	font-size:24px;
 	color: #a3a3a3;
 	letter-spacing:-0.15px;

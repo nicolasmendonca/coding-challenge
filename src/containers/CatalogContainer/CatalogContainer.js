@@ -9,6 +9,7 @@ import {
 	selectNextPageIsAvailable
 } from '../../redux/selectors/products';
 import Catalog from '../../components/Catalog/Catalog';
+import { selectHeaderImage } from '../../redux/selectors/theme';
 
 const PAGE_DIRECTIONS = Object.freeze({
 	PREV: 'PREV',
@@ -37,10 +38,11 @@ class CatalogContainer extends PureComponent {
 	render() {
 		const {
 			userName, userPoints, products, productsCount,
-			prevPageIsAvailable, nextPageIsAvailable,
+			prevPageIsAvailable, nextPageIsAvailable, headerImage
 		} = this.props;
 		return (
 		<Catalog
+			headerImage={headerImage}
 			userName={userName}
 			userPoints={userPoints}
 			products={products}
@@ -60,6 +62,7 @@ CatalogContainer.defaultProps = {
 };
 
 const mapStateToProps = state => ({
+	headerImage: selectHeaderImage( state ),
 	userName: selectUserName(state),
 	userPoints: selectUserPoints(state),
 	products: selectPaginatedProductsCatalog(state),

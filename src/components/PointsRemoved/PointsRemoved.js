@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import coin from '../../assets/icons/coin.svg';
+import { theme } from '../../styles/helpers';
 
 const Container = styled.div`
 	width: 150px;
-	background: ${ props => props.theme.secondaryColor };
+	background: ${theme('secondaryColor')};
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;

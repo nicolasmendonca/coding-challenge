@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from '../../styles/helpers';
 
 const Container = styled.div`
 	min-height: 50vh;
@@ -12,10 +13,10 @@ const Container = styled.div`
 `;
 
 const H1 = styled.h1`
-	font-family: ${ props => props.theme.primaryFont };
+	font-family: ${theme('primaryFont')};
 	font-size: 64px;
 	font-weight: 900;
-	color: white;
+	color: ${theme('containerBackgroundColor')};
 	padding-left: 24px;
 `;
 

@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { theme } from '../../styles/helpers';
 
 export const Container = styled.div`
-	background:#ffffff;
+	background: ${theme('cardBackgroundColor')};
 	box-shadow:2px 2px 4px 0 rgba(0,0,0,0.10);
 	width:276px;
 	overflow: auto;
@@ -13,6 +14,12 @@ export const Container = styled.div`
 	&:hover {
 		transform: translate(-6px, -6px);
 
+		.blue {
+			display: none;
+			width: 50px;
+			height: 50px;
+		}
+
 		.PurchaseOverlay {
 			opacity: 1;
 		}
@@ -20,8 +27,8 @@ export const Container = styled.div`
 `;
 
 export const PriceContainer = styled.span`
-	color: white;
-	font-family: ${ props => props.theme.primaryFont };
+	color: ${theme('containerBackgroundColor')};
+	font-family: ${theme('primaryFont')};
 	font-size: 36px;
 	display: flex;
 	align-items: center;
@@ -35,7 +42,7 @@ export const PurchaseOverlay = styled.div`
 	cursor: pointer;
 	width: 100%;
 	height: 100%;
-	background: linear-gradient(-180deg,#0ad4fabd 0%,#25bbf1d4 100%);
+	background: ${theme('shopItemGradient')};
 	z-index: 2;
 	flex-direction: column;
 	align-items: center;
@@ -47,13 +54,13 @@ export const PurchaseOverlay = styled.div`
 export const RedeemButton = styled.span`
 	margin-top: 18px;
 	padding: 8px 24px;
-	background: white;
+	background: ${theme('containerBackgroundColor')};
 	border-radius: 100px;
-	color: #616161;
+	color: ${theme('secondaryTextColor')};
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-family: ${ props => props.theme.primaryFont };
+	font-family: ${theme('primaryFont')};
 	font-size: 16px;
 `;
 
@@ -72,11 +79,21 @@ export const PurchaseButton = styled.div`
 	border: none;
 	position: absolute;
 	right: 0px;
-	top: 0px;
+	top: 12px;
 `;
 
+export const PurchaseIconButton = styled.div`
+	width: 50px;
+	height: 50px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image: url(${ props => props.image });
+	z-index: 3;
+`
+
 export const CategoryName = styled.p`
-	font-family: ${ props => props.theme.primaryFont };
+	font-family: ${theme('primaryFont')};
 	font-size:16px;
 	color:#a3a3a3;
 	letter-spacing:-0.04px;
@@ -84,9 +101,9 @@ export const CategoryName = styled.p`
 `;
 
 export const ProductName = styled.p`
-	font-family: ${ props => props.theme.primaryFont };
+	font-family: ${theme('primaryFont')};
 	font-size:18px;
-	color:#616161;
+	color: ${theme('secondaryTextColor')};
 	letter-spacing:-0.04px;
 	text-align:left;
 `;
@@ -97,14 +114,14 @@ export const BodyContainer = styled.div`
 `;
 
 export const CoinsRemaining = styled.div`
-	background: #616161c9;
+	background: ${theme('secondaryTextColor')};
 	width: 160px;
 	border-radius:100px;
-	font-family: ${ props => props.theme.primaryFont };
+	font-family: ${theme('primaryFont')};
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
 	p {
-		color: white;
+		color: ${theme('containerBackgroundColor')};
 	}
 `

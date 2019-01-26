@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import { store } from './redux/store';
@@ -11,20 +10,19 @@ import './index.css';
 
 import MessagesContainer from './containers/MessagesContainer/MessagesContainer';
 import PointsRemoved from './components/PointsRemoved/PointsRemoved';
-
-import theme from './styles/theme';
+import ThemeProviderContainer from './containers/ThemeProviderContainer/ThemeProviderContainer';
 
 
 ReactDOM.render(
 	<Provider store={store}>
 		<Router>
-			<ThemeProvider theme={theme}>
+			<ThemeProviderContainer>
 				<Fragment>
 					<Route path="/" exact component={CatalogContainer} />
 					<Route path="/markup" exact component={PointsRemoved} />
 					<MessagesContainer />
 				</Fragment>
-			</ThemeProvider>
+			</ThemeProviderContainer>
 		</Router>
 	</Provider>
 	,
