@@ -30,7 +30,7 @@ export const productsPagination = ( state = productsPaginationInitialState, acti
 	}
 }
 
-const productsSortInitialState = PRODUCTS_SORT.MOST_RECENT;
+const productsSortInitialState = PRODUCTS_SORT.LOWEST_PRICE;
 export const productsSort = ( state = productsSortInitialState, action ) => {
 	switch ( action.type ) {
 	case CHANGE_PRODUCTS_SORT_OPTION:

@@ -5,10 +5,10 @@ import purchaseWhiteIcon from '../../assets/icons/buy-white.svg';
 import coin from '../../assets/icons/coin.svg';
 import { Container, ImageContainer, PurchaseButton, BodyContainer, CategoryName, ProductName, PurchaseOverlay, PriceContainer, RedeemButton, CoinsRemaining } from './styledComponents';
 
-const ShopItem = ( { image, name, category, cost, remainingPointsToBuyProduct } ) => (
+const ShopItem = ( { image, name, category, cost, remainingPointsToBuyProduct, onRedeem } ) => (
 	<Container>
 		{remainingPointsToBuyProduct < 0 && (
-			<PurchaseOverlay className="PurchaseOverlay">
+			<PurchaseOverlay onClick={onRedeem} className="PurchaseOverlay">
 				<PurchaseButton>
 					<img style={{ marginRight: '7px' }} src={purchaseWhiteIcon} alt="Purchase"/>
 				</PurchaseButton>

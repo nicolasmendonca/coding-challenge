@@ -12,7 +12,7 @@ const Container = styled.div`
 `;
 
 const H1 = styled.h1`
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: ${ props => props.theme.primaryFont };
 	font-size: 64px;
 	font-weight: 900;
 	color: white;

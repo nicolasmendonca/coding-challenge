@@ -7,7 +7,7 @@ export const SortContainer = styled.div`
 `;
 
 export const Button = styled.button`
-background: ${ props => props.active ? '#0ad4fa' : '#ededed' };
+background: ${ props => props.active ? props.theme.primaryColor : props.theme.secondaryColor };
 border-radius:100px;
 padding: 8px 24px;
 border: none;
@@ -15,7 +15,7 @@ margin: 0 12px;
 cursor: pointer;
 
 span {
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: ${ props => props.theme.primaryFont };
 	font-size:24px;
 	color: #ffffff;
 	letter-spacing:-0.15px;
@@ -25,9 +25,9 @@ span {
 `;
 
 export const SortBy = styled.span`
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: ${ props => props.theme.primaryFont };
 	font-size:24px;
-	color:#a3a3a3;
+	color: #a3a3a3;
 	letter-spacing:-0.15px;
 	line-height:48px;
 	text-align:left;

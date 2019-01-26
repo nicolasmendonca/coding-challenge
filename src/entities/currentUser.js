@@ -8,7 +8,7 @@ class CurrentUser {
 	) {
 		this.id = _id;
 		this.redeemHistory = redeemHistory;
-		this.points = points;
+		this.points = Number(points);
 		this.name = name;
 		this.createDate = createDate;
 	}
@@ -21,6 +21,16 @@ class CurrentUser {
 			properties.name,
 			properties.createDate,
 		)
+	}
+
+	addPoints( amount ) {
+		return new CurrentUser(
+			this.id,
+			this.redeemHistory,
+			this.points + amount,
+			this.name,
+			this.createDate
+		);
 	}
 }
 

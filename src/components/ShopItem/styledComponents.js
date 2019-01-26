@@ -21,7 +21,7 @@ export const Container = styled.div`
 
 export const PriceContainer = styled.span`
 	color: white;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: ${ props => props.theme.primaryFont };
 	font-size: 36px;
 	display: flex;
 	align-items: center;
@@ -53,7 +53,7 @@ export const RedeemButton = styled.span`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: ${ props => props.theme.primaryFont };
 	font-size: 16px;
 `;
 
@@ -76,7 +76,7 @@ export const PurchaseButton = styled.div`
 `;
 
 export const CategoryName = styled.p`
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: ${ props => props.theme.primaryFont };
 	font-size:16px;
 	color:#a3a3a3;
 	letter-spacing:-0.04px;
@@ -84,7 +84,7 @@ export const CategoryName = styled.p`
 `;
 
 export const ProductName = styled.p`
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: ${ props => props.theme.primaryFont };
 	font-size:18px;
 	color:#616161;
 	letter-spacing:-0.04px;
@@ -100,7 +100,7 @@ export const CoinsRemaining = styled.div`
 	background: #616161c9;
 	width: 160px;
 	border-radius:100px;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: ${ props => props.theme.primaryFont };
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;

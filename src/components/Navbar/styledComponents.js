@@ -16,7 +16,7 @@ justify-content: space-between;
 width: 220px;
 
 p {
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: ${ props => props.theme.primaryFont };
 	font-size:24px;
 	color:#616161;
 	letter-spacing:-0.15px;
@@ -26,8 +26,8 @@ p {
 `;
 
 const Coins = styled.span`
-font-family: 'Source Sans Pro', sans-serif;
-background:#ededed;
+font-family: ${ props => props.theme.primaryFont };
+background: ${ props => props.theme.secondaryColor };
 border-radius:100px;
 width:103px;
 height:48px;
