@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import headerImage from '../../assets/header-x2.png';
 import Navbar from '../../components/Navbar/Navbar';
@@ -6,6 +6,8 @@ import Header from '../../components/Header/Header';
 import CatalogIndicators from '../../components/CatalogIndicators/CatalogIndicators';
 import ShopItem from '../../components/ShopItem/ShopItem';
 import { connectComponent } from '../../redux/connectComponent';
+import { selectUserName, selectUserPoints } from '../../redux/selectors/user';
+import { selectProductsCatalog } from '../../redux/selectors/products';
 
 const Container = styled.div`
   background-color: #f9f9f9;
@@ -20,32 +22,22 @@ const ShopItemList = styled.div`
   justify-content: space-between;
 `;
 
-class CatalogContainer extends Component {
+class CatalogContainer extends PureComponent {
+  componentDidMount() {
+    this.props.fetchUserInfo();
+    this.props.fetchProductsCatalog();
+  }
+
   render() {
+    const { userName, userPoints, products } = this.props;
     return (
       <div className="App">
-        <Navbar name="John Kite" coins={6000} />
+        <Navbar name={userName} coins={userPoints} />
         <Header name="Electronics" image={headerImage} />
         <Container>
-          <CatalogIndicators />
+          <CatalogIndicators productsCount={products.length} />
           <ShopItemList>
-            <ShopItem />
-            <ShopItem />
-            <ShopItem />
-            <ShopItem />
-            <ShopItem />
-            <ShopItem />
-            <ShopItem />
-            <ShopItem />
-            <ShopItem />
-            <ShopItem />
-            <ShopItem />
-            <ShopItem />
-            <ShopItem />
-            <ShopItem />
-            <ShopItem />
-            <ShopItem />
-            <ShopItem />
+            { products.map( product => <ShopItem key={product.id} image={product.imgSD} name={product.name} category={product.category} /> ) }
           </ShopItemList>
         </Container>
       </div>
@@ -53,4 +45,15 @@ class CatalogContainer extends Component {
   }
 }
 
-export default connectComponent()( CatalogContainer );
+CatalogContainer.defaultProps = {
+  userName: '',
+  points: null,
+}
+
+const mapStateToProps = state => ( {
+  userName: selectUserName( state ),
+  userPoints: selectUserPoints( state ),
+  products: selectProductsCatalog( state )
+} )
+
+export default connectComponent( mapStateToProps )( CatalogContainer );

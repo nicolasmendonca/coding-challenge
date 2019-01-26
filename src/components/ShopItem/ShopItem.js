@@ -3,23 +3,27 @@ import productImage from '../../assets/AcerAspire-x1.png';
 import purchaseBlueIcon from '../../assets/icons/buy-blue.svg';
 import { Container, ImageContainer, PurchaseButton, BodyContainer, CategoryName, ProductName } from './styledComponents';
 
-const ShopItem = () => (
+const ShopItem = ( { image, name, category } ) => (
 	<Container>
 		<ImageContainer>
 			<PurchaseButton>
 				<img src={purchaseBlueIcon} alt="Purchase"/>
 			</PurchaseButton>
-			<img src={productImage} alt="Product"/>
+			<img src={image} alt="Product"/>
 		</ImageContainer>
 		<BodyContainer>
 			<CategoryName>
-				Phones
+				{category}
 			</CategoryName>
 			<ProductName>
-				iPhone 8
+				{name}
 			</ProductName>
 		</BodyContainer>
 	</Container>
 );
+
+ShopItem.defaultProps = {
+	image: productImage,
+}
 
 export default ShopItem;

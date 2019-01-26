@@ -2,10 +2,10 @@ import React from 'react';
 import { Container, ResultCount, SortContainer, SortBy, Button } from './styledComponents';
 
 
-const CatalogIndicators = () => (
+const CatalogIndicators = ({ productsCount }) => (
 	<Container>
 		<ResultCount>
-			16 of 32 products
+			16 of {productsCount} products
 		</ResultCount>
 		<SortContainer>
 			<SortBy>Sort by:</SortBy>
@@ -27,5 +27,9 @@ const CatalogIndicators = () => (
 		</SortContainer>
 	</Container>
 );
+
+CatalogIndicators.defaultProps = {
+	productsCount: 0
+}
 
 export default CatalogIndicators;
