@@ -1,7 +1,7 @@
 import React from 'react';
 import { connectComponent } from '../../redux/connectComponent';
 
-const ShopWhiteIcon = ( { primaryColor } ) => (
+export const ShopWhiteIcon = ( { primaryColor } ) => (
 	<svg style={{ marginRight: '5px', marginTop: '-2px' }} width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg">
 		<title>icon-white</title>
 		<desc>Created with Sketch.</desc>

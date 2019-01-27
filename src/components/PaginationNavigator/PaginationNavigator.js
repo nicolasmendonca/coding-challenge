@@ -10,12 +10,12 @@ const PaginationNavigator = ( {
 	<div>
 		{ prevPageIsAvailable && (
 			<Button onClick={onPrevPageClicked}>
-				<img src={leftArrow} alt=""/>
+				<img src={leftArrow} alt="Previous"/>
 			</Button>
 		) }
 		{ nextPageIsAvailable && (
 			<Button onClick={onNextPageClicked}>
-				<img src={rightArrow} alt=""/>
+				<img src={rightArrow} alt="Next"/>
 			</Button>
 		) }
 	</div>

@@ -8,12 +8,11 @@ import { Container, ShopItemList, PaginationIndicators } from './styledComponent
 import Product from '../../entities/product';
 import ItemsDisplayedContainer from '../../containers/ItemsDisplayedContainer/ItemsDisplayedContainer';
 import ProductShopItemContainer from '../../containers/ProductShopItemContainer/ProductShopItemContainer';
+import PaginationNavigatorContainer from '../../containers/PaginationNavigatorContainer/PaginationNavigatorContainer';
 
 
 const Catalog = ( {
 	userName, userPoints, products,
-	onPrevPageClicked, onNextPageClicked,
-	prevPageIsAvailable, nextPageIsAvailable,
 	headerImage
 } ) => (
 	<div className="CatalogContainer">
@@ -26,12 +25,7 @@ const Catalog = ( {
 			</ShopItemList>
 			<PaginationIndicators>
 				<ItemsDisplayedContainer />
-				<PaginationNavigator
-					onPrevPageClicked={onPrevPageClicked}
-					onNextPageClicked={onNextPageClicked}
-					prevPageIsAvailable={prevPageIsAvailable}
-					nextPageIsAvailable={nextPageIsAvailable}
-				/>
+				<PaginationNavigatorContainer />
 			</PaginationIndicators>
 		</Container>
 	</div>
@@ -41,11 +35,7 @@ Catalog.propTypes = {
 	userName: PropTypes.string.isRequired,
 	userPoints: PropTypes.number.isRequired,
 	products: PropTypes.arrayOf( PropTypes.instanceOf( Product ) ),
-	productsCount: PropTypes.number.isRequired,
-	prevPageIsAvailable: PropTypes.bool.isRequired,
-	nextPageIsAvailable: PropTypes.bool.isRequired,
-	onPrevPageClicked: PropTypes.func.isRequired,
-	onNextPageClicked: PropTypes.func.isRequired,
+	headerImage: PropTypes.string.isRequired,
 }
 
 Catalog.defaultProps = {
