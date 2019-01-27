@@ -28,6 +28,7 @@ export const UserInfo = styled.div`
 
 export const Coins = styled.span`
 	font-family: ${theme('primaryFont')};
+	font-size: 18px;
 	background: ${theme('secondaryColor')};
 	border-radius:100px;
 	width:103px;
@@ -39,10 +40,10 @@ export const Coins = styled.span`
 	color: ${theme('primaryTextColor')};
 	border: none;
 	cursor: pointer;
+	transition: transform .2s ease-in-out;
 
 	&:hover {
 		transform: scale( 1.05 );
-		transition: transform .25s ease-in-out;
 	}
 
 	&:disabled {
