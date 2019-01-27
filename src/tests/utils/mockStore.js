@@ -25,6 +25,7 @@ export const initialState = {
 	purchase: new Map(),
 	theme: mainTheme,
 	currentUser: new CurrentUser( 1, [], 2000, 'John Doe', new Date() ),
+	addCoinsRequest: { sending: false, error: null, success: false }
 }
 
 const store = createStore( initialState );

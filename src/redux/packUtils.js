@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 import { handle } from 'redux-pack';
+
 
 export const handleSuccess = (
 	state, action, handler
@@ -37,3 +39,9 @@ export const makeAsyncActionReducer = ( actionType, resetActionType = undefined 
 			return state;
 		}
 	};
+
+export const asyncActionStatePropType = PropTypes.shape( {
+	sending: PropTypes.bool.isRequired,
+	error: PropTypes.bool.isRequired,
+	success: PropTypes.bool.isRequired,
+} );

@@ -19,24 +19,17 @@ export class CatalogContainer extends PureComponent {
 
 	render() {
 		const {
-			userName, userPoints, products, productsCount, headerImage
+			products, productsCount, headerImage
 		} = this.props;
 		return (
 		<Catalog
 			headerImage={headerImage}
-			userName={userName}
-			userPoints={userPoints}
 			products={products}
 			productsCount={productsCount}
 		/>
 		);
 	}
 }
-
-CatalogContainer.defaultProps = {
-	userName: '',
-	userPoints: 0
-};
 
 CatalogContainer.propTypes = {
 	fetchUserInfo: PropTypes.func.isRequired,

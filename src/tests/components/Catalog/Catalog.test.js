@@ -9,11 +9,10 @@ import { ShopItemList } from '../../../components/Catalog/styledComponents';
 import ProductShopItemContainer from '../../../containers/ProductShopItemContainer/ProductShopItemContainer';
 import ItemsDisplayedContainer from '../../../containers/ItemsDisplayedContainer/ItemsDisplayedContainer';
 import PaginationNavigatorContainer from '../../../containers/PaginationNavigatorContainer/PaginationNavigatorContainer';
+import NavbarContainer from '../../../containers/NavbarContainer/NavbarContainer';
 
 describe( 'Catalog', () => {
 
-	const userName = 'John Doe';
-	const userPoints = 20;
 	const products = [ new Product( 1, 'iPhone', 10, 'Phones', 'imageHD.png', 'imageSD.jpg' ) ];
 	const onPrevPageClicked = jest.fn();
 	const onNextPageClicked = jest.fn();
@@ -23,8 +22,6 @@ describe( 'Catalog', () => {
 
 	const component = shallow(
 		<Catalog
-			userName={userName}
-			userPoints={userPoints}
 			products={products}
 			onPrevPageClicked={onPrevPageClicked}
 			onNextPageClicked={onNextPageClicked}
@@ -34,10 +31,8 @@ describe( 'Catalog', () => {
 		/>
 	);
 
-	it( 'renders a Navbar component', () => {
-		expect( component.find( Navbar ).exists() ).toBeTruthy();
-		expect( component.find( Navbar ).prop( 'name' ) ).toBe( userName );
-		expect( component.find( Navbar ).prop( 'coins' ) ).toBe( userPoints );
+	it( 'renders a NavbarContainer component', () => {
+		expect( component.find( NavbarContainer ).exists() ).toBeTruthy();
 	} );
 
 	it( 'renders a Header component', () => {

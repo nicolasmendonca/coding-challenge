@@ -1,10 +1,8 @@
 import React from 'react';
 import CatalogContainer from '../../../containers/CatalogContainer/CatalogContainer';
-import Product from '../../../entities/product';
 import Catalog from '../../../components/Catalog/Catalog';
 import mountWithStore from '../../utils/mountWithStore';
 import store, { initialState } from '../../utils/mockStore';
-import { fetchUserInfo } from '../../../redux/actions/user';
 import { FETCH_USER_INFO, FETCH_PRODUCTS_CATALOG } from '../../../redux/types';
 
 describe( 'CatalogContainer', () => {
@@ -30,8 +28,6 @@ describe( 'CatalogContainer', () => {
 
 		it( 'passes down the Catalog required props', () => {
 			expect( component.find( Catalog ).prop( 'headerImage' ) ).toBe( 'header-x2.png' );
-			expect( component.find( Catalog ).prop( 'userName' ) ).toBe( initialState.currentUser.name );
-			expect( component.find( Catalog ).prop( 'userPoints' ) ).toBe( initialState.currentUser.points );
 			expect( component.find( Catalog ).prop( 'products' ) ).toEqual( initialState.products.valueSeq().toArray().slice( 0, 1 ) );
 			expect( component.find( Catalog ).prop( 'productsCount' ) ).toBe( initialState.products.size );
 		} );

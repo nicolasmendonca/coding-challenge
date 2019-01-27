@@ -44,4 +44,8 @@ export const Coins = styled.span`
 		transform: scale( 1.05 );
 		transition: transform .25s ease-in-out;
 	}
+
+	&:disabled {
+		cursor: wait;
+	}
 `;

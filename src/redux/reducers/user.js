@@ -1,6 +1,8 @@
 import { FETCH_USER_INFO, REDEEM_PRODUCT, ADD_COINS } from '../types';
-import { handleSuccess } from '../packUtils';
+import { handleSuccess, makeAsyncActionReducer } from '../packUtils';
 import CurrentUser from '../../entities/currentUser';
+
+export const addCoinsRequest = makeAsyncActionReducer( ADD_COINS );
 
 const initialState = false;
 export const currentUser = ( state = initialState, action ) => {

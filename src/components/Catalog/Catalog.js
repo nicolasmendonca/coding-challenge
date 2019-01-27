@@ -28,8 +28,6 @@ const Catalog = ( { products, headerImage } ) => (
 );
 
 Catalog.propTypes = {
-	userName: PropTypes.string.isRequired,
-	userPoints: PropTypes.number.isRequired,
 	products: PropTypes.arrayOf( PropTypes.instanceOf( Product ) ),
 	headerImage: PropTypes.string.isRequired,
 }

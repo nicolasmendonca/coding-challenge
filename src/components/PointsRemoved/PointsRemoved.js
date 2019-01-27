@@ -14,7 +14,7 @@ class PointsRemoved extends PureComponent {
 		const { removed } = this.props;
 		setTimeout( () => {
 			this.setState( prevState => ( { actualCoins: prevState.actualCoins - removed } ) )
-		}, 1000 )
+		}, 400 )
 	}
 
 	render() {
