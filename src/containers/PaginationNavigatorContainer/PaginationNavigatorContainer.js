@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PaginationNavigator from '../../components/PaginationNavigator/PaginationNavigator';
 import { connectComponent } from '../../redux/connectComponent';
-import { selectPrevPageIsAvailable, selectNextPageIsAvailable } from '../../redux/selectors/products';
+import { selectPrevPageIsAvailable, selectNextPageIsAvailable, getCurrentPage } from '../../redux/selectors/products';
 
 const PAGE_DIRECTIONS = Object.freeze({
 	PREV: 'PREV',
@@ -38,6 +38,7 @@ class PaginationNavigatorContainer extends PureComponent {
 }
 
 export default connectComponent( state => ( {
+	currentPage: getCurrentPage( state ),
 	prevPageIsAvailable: selectPrevPageIsAvailable( state ),
 	nextPageIsAvailable: selectNextPageIsAvailable( state ),
 } ) )( PaginationNavigatorContainer );

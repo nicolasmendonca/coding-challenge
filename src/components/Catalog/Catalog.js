@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Navbar from '../Navbar/Navbar';
 import Header from '../Header/Header';
-import PaginationNavigator from '../PaginationNavigator/PaginationNavigator';
 import CatalogIndicators from '../CatalogIndicators/CatalogIndicators';
 import { Container, ShopItemList, PaginationIndicators } from './styledComponents';
 import Product from '../../entities/product';
