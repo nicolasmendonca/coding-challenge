@@ -1,5 +1,6 @@
 // coins
 export const UPDATE_COIN_AMOUNT = 'UPDATE_COIN_AMOUNT';
+export const ADD_COINS = 'ADD_COINS';
 
 // user
 export const FETCH_USER_INFO = 'FETCH_USER_INFO';

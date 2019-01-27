@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connectComponent } from '../../redux/connectComponent';
-import { selectUserName, selectUserPoints } from '../../redux/selectors/user';
 import {
 	selectPaginatedProductsCatalog,
 	selectProductsCount,
@@ -43,8 +42,6 @@ CatalogContainer.propTypes = {
 	fetchUserInfo: PropTypes.func.isRequired,
 	fetchProductsCatalog: PropTypes.func.isRequired,
 	headerImage: PropTypes.string.isRequired,
-	userName: PropTypes.string.isRequired,
-	userPoints: PropTypes.oneOfType( [ PropTypes.number, PropTypes.string ] ).isRequired,
 	products: PropTypes.arrayOf( PropTypes.instanceOf( Product ) ).isRequired,
 	productsCount: PropTypes.number.isRequired,
 	currentPage: PropTypes.number.isRequired,
@@ -52,8 +49,6 @@ CatalogContainer.propTypes = {
 
 const mapStateToProps = state => ({
 	headerImage: selectHeaderImage( state ),
-	userName: selectUserName(state),
-	userPoints: selectUserPoints(state),
 	products: selectPaginatedProductsCatalog(state),
 	productsCount: selectProductsCount(state),
 	currentPage: getCurrentPage( state ),

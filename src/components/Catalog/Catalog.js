@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Navbar from '../Navbar/Navbar';
 import Header from '../Header/Header';
 import CatalogIndicators from '../CatalogIndicators/CatalogIndicators';
 import { Container, ShopItemList, PaginationIndicators } from './styledComponents';
@@ -8,14 +7,12 @@ import Product from '../../entities/product';
 import ItemsDisplayedContainer from '../../containers/ItemsDisplayedContainer/ItemsDisplayedContainer';
 import ProductShopItemContainer from '../../containers/ProductShopItemContainer/ProductShopItemContainer';
 import PaginationNavigatorContainer from '../../containers/PaginationNavigatorContainer/PaginationNavigatorContainer';
+import NavbarContainer from '../../containers/NavbarContainer/NavbarContainer';
 
 
-const Catalog = ( {
-	userName, userPoints, products,
-	headerImage
-} ) => (
+const Catalog = ( { products, headerImage } ) => (
 	<div className="CatalogContainer">
-		<Navbar name={userName} coins={userPoints} />
+		<NavbarContainer />
 		<Header name="Electronics" image={headerImage} />
 		<Container className="Catalog">
 			<CatalogIndicators />
