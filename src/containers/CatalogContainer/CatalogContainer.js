@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { connectComponent } from '../../redux/connectComponent';
 import { selectUserName, selectUserPoints } from '../../redux/selectors/user';
 import {
@@ -8,8 +9,9 @@ import {
 } from '../../redux/selectors/products';
 import Catalog from '../../components/Catalog/Catalog';
 import { selectHeaderImage } from '../../redux/selectors/theme';
+import Product from '../../entities/product';
 
-class CatalogContainer extends PureComponent {
+export class CatalogContainer extends PureComponent {
 	componentDidMount() {
 		this.props.fetchUserInfo();
 		this.props.fetchProductsCatalog();
@@ -36,6 +38,17 @@ CatalogContainer.defaultProps = {
 	userName: '',
 	userPoints: 0
 };
+
+CatalogContainer.propTypes = {
+	fetchUserInfo: PropTypes.func.isRequired,
+	fetchProductsCatalog: PropTypes.func.isRequired,
+	headerImage: PropTypes.string.isRequired,
+	userName: PropTypes.string.isRequired,
+	userPoints: PropTypes.oneOfType( [ PropTypes.number, PropTypes.string ] ).isRequired,
+	products: PropTypes.arrayOf( PropTypes.instanceOf( Product ) ).isRequired,
+	productsCount: PropTypes.number.isRequired,
+	currentPage: PropTypes.number.isRequired,
+}
 
 const mapStateToProps = state => ({
 	headerImage: selectHeaderImage( state ),

@@ -16,6 +16,7 @@
     "react-test-renderer": "^16.7.0",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
+    "redux-mock-store": "^1.5.3",
     "redux-pack": "^0.1.5",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
@@ -35,5 +36,12 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/*.js",
+      "!src/lib/*.js"
+    ]
+  }
 }

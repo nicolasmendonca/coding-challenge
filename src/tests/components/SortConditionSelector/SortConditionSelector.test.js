@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import SortConditionSelector from '../../components/SortConditionSelector/SortConditionSelector';
-import { SortContainer, Button } from '../../components/SortConditionSelector/styledComponents';
+import SortConditionSelector from '../../../components/SortConditionSelector/SortConditionSelector';
+import { SortContainer, Button } from '../../../components/SortConditionSelector/styledComponents';
 
 describe( 'SortConditionSelector', () => {
 
