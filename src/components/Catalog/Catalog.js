@@ -11,7 +11,7 @@ import PaginationNavigatorContainer from '../../containers/PaginationNavigatorCo
 import NavbarContainer from '../../containers/NavbarContainer/NavbarContainer';
 
 
-const Catalog = ( { products, headerImage } ) => (
+const Catalog = ( { products, headerImage, selectedSortOption } ) => (
 	<div className="CatalogContainer">
 		<NavbarContainer />
 		<Header name="Electronics" image={headerImage} />
@@ -19,7 +19,7 @@ const Catalog = ( { products, headerImage } ) => (
 			<CatalogIndicators />
 			<ShopItemList>
 				{products.map(product => (
-					<Fade key={product.id} delay={300}>
+					<Fade key={`${selectedSortOption}-${product.id}`} delay={200}>
 						<ProductShopItemContainer product={product} />
 					</Fade>
 				) ) }

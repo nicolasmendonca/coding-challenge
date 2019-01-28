@@ -5,11 +5,13 @@ import {
 	selectPaginatedProductsCatalog,
 	selectProductsCount,
 	getCurrentPage,
+	selectProductSortID,
 } from '../../redux/selectors/products';
 import Catalog from '../../components/Catalog/Catalog';
 import { selectHeaderImage } from '../../redux/selectors/theme';
 import Product from '../../entities/product';
 import { StyledCatalog } from './styledComponent';
+import { PRODUCTS_SORT_KEY_OPTIONS } from '../../config';
 
 export class CatalogContainer extends PureComponent {
 	componentDidMount() {
@@ -19,7 +21,7 @@ export class CatalogContainer extends PureComponent {
 
 	render() {
 		const {
-			products, productsCount, headerImage
+			products, productsCount, headerImage, selectedSortOption
 		} = this.props;
 		return (
 			<StyledCatalog>
@@ -27,6 +29,7 @@ export class CatalogContainer extends PureComponent {
 					headerImage={headerImage}
 					products={products}
 					productsCount={productsCount}
+					selectedSortOption={selectedSortOption}
 				/>
 			</StyledCatalog>
 		);
@@ -40,6 +43,7 @@ CatalogContainer.propTypes = {
 	products: PropTypes.arrayOf( PropTypes.instanceOf( Product ) ).isRequired,
 	productsCount: PropTypes.number.isRequired,
 	currentPage: PropTypes.number.isRequired,
+	selectedSortOption: PropTypes.oneOf( PRODUCTS_SORT_KEY_OPTIONS ).isRequired
 }
 
 const mapStateToProps = state => ({
@@ -47,6 +51,7 @@ const mapStateToProps = state => ({
 	products: selectPaginatedProductsCatalog(state),
 	productsCount: selectProductsCount(state),
 	currentPage: getCurrentPage( state ),
+	selectedSortOption: selectProductSortID( state ),
 });
 
 export default connectComponent(mapStateToProps)(CatalogContainer);
