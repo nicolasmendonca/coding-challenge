@@ -3,11 +3,17 @@ import { theme } from '../../styles/helpers';
 
 export const Nav = styled.nav`
 	background: ${theme('containerBackgroundColor')};
-	height: 40px;
+	height: 75px;
 	padding: 20px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 2;
+	box-sizing: border-box;
 `;
 
 export const UserInfo = styled.div`

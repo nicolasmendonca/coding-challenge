@@ -6,11 +6,10 @@ export const Container = styled.div`
 	box-shadow:2px 2px 4px 0 rgba(0,0,0,0.10);
 	width:276px;
 	overflow: auto;
-	width: 300px;
+	width: 100%;
 	margin-bottom: 12px;
 	position: relative;
-	transition: transform .25s;
-
+	transition: all cubic-bezier(0.15, 0.82, 1, 1) .4s;
 	&:hover {
 		transform: translate(-6px, -6px);
 
@@ -122,6 +121,7 @@ export const CoinsRemaining = styled.div`
 	align-items: center;
 	justify-content: space-evenly;
 	p {
+		font-size: 15px;
 		color: ${theme('containerBackgroundColor')};
 	}
 `

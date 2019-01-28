@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Fade from 'react-reveal/Fade';
 import Header from '../Header/Header';
 import CatalogIndicators from '../CatalogIndicators/CatalogIndicators';
 import { Container, ShopItemList, PaginationIndicators } from './styledComponents';
@@ -17,7 +18,11 @@ const Catalog = ( { products, headerImage } ) => (
 		<Container className="Catalog">
 			<CatalogIndicators />
 			<ShopItemList>
-				{ products.map( product => <ProductShopItemContainer key={product.id} product={product} /> ) }
+				{products.map(product => (
+					<Fade key={product.id} delay={300}>
+						<ProductShopItemContainer product={product} />
+					</Fade>
+				) ) }
 			</ShopItemList>
 			<PaginationIndicators>
 				<ItemsDisplayedContainer />

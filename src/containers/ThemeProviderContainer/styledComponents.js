@@ -7,4 +7,9 @@ export const ThemeChanger = styled.img`
 	top: 15vh;
 	width: 100px;
 	cursor: pointer;
+	transition: all cubic-bezier(0.15, 0.82, 1, 1) .4s;
+
+	&:hover{
+		transform: rotate(45deg) translate(20px, 20px) ;
+	}
 `;

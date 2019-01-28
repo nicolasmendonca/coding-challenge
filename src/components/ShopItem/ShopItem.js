@@ -29,7 +29,7 @@ const ShopItem = ( { image, name, category, cost, remainingPointsToBuyProduct, o
 					: <CoinsRemaining><p>You need {remainingPointsToBuyProduct}</p><img src={coin} alt="Coin" /></CoinsRemaining>
 				}
 			</PurchaseButton>
-			<img style={{width: '100%'}} src={image} alt="Product"/>
+			<img style={{margin: 'auto', display: 'block'}}src={image} alt="Product"/>
 		</ImageContainer>
 		<BodyContainer>
 			<CategoryName>

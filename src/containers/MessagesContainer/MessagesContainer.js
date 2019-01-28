@@ -10,10 +10,16 @@ import { Button } from '../../components/SortConditionSelector/styledComponents'
 const ModalWrapper = styled.div`
 	width: 500px;
 	height: 400px;
+	background: white;
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
 	flex-direction: column;
+
+	h1{
+		font-size: 1.5em;
+		text-align: center;
+	}
 
 	Button {
 		min-width: 40%;

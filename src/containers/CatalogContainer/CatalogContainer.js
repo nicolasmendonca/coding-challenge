@@ -9,6 +9,7 @@ import {
 import Catalog from '../../components/Catalog/Catalog';
 import { selectHeaderImage } from '../../redux/selectors/theme';
 import Product from '../../entities/product';
+import { StyledCatalog } from './styledComponent';
 
 export class CatalogContainer extends PureComponent {
 	componentDidMount() {
@@ -16,17 +17,18 @@ export class CatalogContainer extends PureComponent {
 		this.props.fetchProductsCatalog();
 	}
 
-
 	render() {
 		const {
 			products, productsCount, headerImage
 		} = this.props;
 		return (
-		<Catalog
-			headerImage={headerImage}
-			products={products}
-			productsCount={productsCount}
-		/>
+			<StyledCatalog>
+				<Catalog
+					headerImage={headerImage}
+					products={products}
+					productsCount={productsCount}
+				/>
+			</StyledCatalog>
 		);
 	}
 }

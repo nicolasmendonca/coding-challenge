@@ -1,3 +1,5 @@
+import electronicsHeaderImage from '../assets/header-x2.png';
+
 const mainTheme = {
 	id: 'light',
 	primaryColor: '#0ad4fa',
@@ -8,6 +10,7 @@ const mainTheme = {
 	cardBackgroundColor: '#ffffff',
 	primaryFont: `'Source Sans Pro', sans-serif`,
 	shopItemGradient: 'linear-gradient(-180deg,#0ad4fabd 0%,#25bbf1d4 100%)',
+	electronicsHeaderImage
 };
 
 export default mainTheme;
