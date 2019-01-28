@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Navbar from '../../components/Navbar/Navbar';
 import { connectComponent } from '../../redux/connectComponent';
 import { selectUserName, selectUserPoints } from '../../redux/selectors/user';
-import { asyncActionStatePropType } from '../../redux/packUtils';
+import { asyncActionStatePropType } from '../../lib/packUtils';
 
 const NavbarContainer = ( { name, coins, addCoins, isAddingCoins } ) => (
 	<Navbar

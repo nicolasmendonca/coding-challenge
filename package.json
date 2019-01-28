@@ -43,7 +43,14 @@
     "collectCoverageFrom": [
       "src/**/*.js",
       "!src/*.js",
-      "!src/lib/*.js"
+      "!src/lib/*.js",
+      "!src/styles/**/*.js",
+      "!src/redux/reducers/index.js",
+      "!src/redux/actions/index.js",
+      "!src/redux/store.js"
     ]
+  },
+  "devDependencies": {
+    "surge": "^0.20.1"
   }
 }

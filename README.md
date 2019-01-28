@@ -1,10 +1,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+[![pipeline status](https://gitlab.com/nicolasmendonca/aerolab-challenge/badges/master/pipeline.svg)](https://gitlab.com/nicolasmendonca/aerolab-challenge/commits/master)
+[![coverage report](https://gitlab.com/nicolasmendonca/aerolab-challenge/badges/master/coverage.svg)](https://gitlab.com/nicolasmendonca/aerolab-challenge/commits/master)
+
+
+
 # Readme
-
-This is an unfinished project demonstration for Aerolab, done in 48hs.
-
-Because of a lack of time, test coverage is at 67%. Action creators and reducers remains to be tested.
 
 Two things worth mentioning:
 - "Most recent" sort: products dont have a `created_at` timestamp to be sorted, so i just sorted the `products._id` alphabetically.
@@ -20,5 +22,5 @@ P.D.: A Jedi master might offer you to make a choice. But it's never too late to
 
 # Links
 
-- [Production link](https://build-9lqfex36b.now.sh/)
+- [Production link](http://nm-aerolab-challenge.surge.sh/)
 - [Repo Link](https://gitlab.com/nicolasmendonca/aerolab-challenge)

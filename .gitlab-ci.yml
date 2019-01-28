@@ -1,0 +1,50 @@
+image: node:10.6
+
+stages:
+  - install
+  - review
+  - build
+  - deploy
+
+yarn:
+  stage: install
+  cache:
+    untracked: true
+  script:
+    - yarn
+  tags: 
+    - docker
+
+run_tests:
+  stage: review
+  cache:
+    untracked: true
+    policy: pull
+  script:
+    - yarn test --coverage
+  tags:
+    - docker
+  artifacts:
+    paths:
+      - coverage/
+
+build:
+  stage: build
+  cache:
+    untracked: true
+    policy: pull-push
+  script:
+    - yarn build
+  tags:
+    - docker
+
+deploy_prod:
+  stage: deploy
+  cache:
+    untracked: true
+    policy: pull
+  only:
+    - master
+  script:
+    - ./node_modules/.bin/surge --project build --domain nm-aerolab-challenge.surge.sh
+    - 'echo "DEPLOYED ON: nm-aerolab-challenge.surge.sh"'

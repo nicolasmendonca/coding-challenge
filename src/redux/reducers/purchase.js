@@ -1,7 +1,8 @@
 import { Map } from 'immutable';
-import { handleSuccess } from '../packUtils';
+
 import Purchase from '../../entities/purchase';
 import { REDEEM_PRODUCT } from '../types';
+import { handleSuccess } from '../../lib/packUtils';
 
 const purchaseInitialState = new Map();
 export const purchase = ( state = purchaseInitialState, action ) => {

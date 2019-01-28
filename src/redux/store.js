@@ -10,11 +10,16 @@ import Api from '../lib/Api';
 
 const api = new Api( authToken );
 
+const middlewares = [
+	thunk.withExtraArgument( api ),
+	reduxPackMiddleware,
+];
+
+if ( process.env.NODE_ENV === 'development' ) {
+	middlewares.push( logger );
+}
+
 export const store = createStore(
 	reducers,
-	applyMiddleware(
-		thunk.withExtraArgument( api ),
-		reduxPackMiddleware,
-		logger
-	)
+	applyMiddleware( ...middlewares )
 );

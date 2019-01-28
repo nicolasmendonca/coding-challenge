@@ -30,6 +30,4 @@ export const initialState = {
 
 const store = createStore( initialState );
 
-export const storeWithState = ( mergedState = {} ) => createStore( { ...initialState, mergedState } );
-
 export default store;

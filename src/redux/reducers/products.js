@@ -1,8 +1,9 @@
 import { Map } from 'immutable';
 import { FETCH_PRODUCTS_CATALOG, CHANGE_PRODUCTS_CATALOG_PAGE, CHANGE_PRODUCTS_SORT_OPTION } from '../types';
-import { handleSuccess } from '../packUtils';
+
 import Product from '../../entities/product';
 import { initialPage, PRODUCTS_SORT } from '../../config';
+import { handleSuccess } from '../../lib/packUtils';
 
 const productsInitialState = new Map();
 export const products = ( state = productsInitialState, action ) => {

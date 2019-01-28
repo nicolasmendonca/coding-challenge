@@ -1,5 +1,5 @@
 import { FETCH_USER_INFO, REDEEM_PRODUCT, ADD_COINS } from '../types';
-import { handleSuccess, makeAsyncActionReducer } from '../packUtils';
+import { makeAsyncActionReducer, handleSuccess } from '../../lib/packUtils';
 import CurrentUser from '../../entities/currentUser';
 
 export const addCoinsRequest = makeAsyncActionReducer( ADD_COINS );
